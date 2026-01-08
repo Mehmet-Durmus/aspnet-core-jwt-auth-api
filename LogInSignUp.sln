@@ -3,7 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36518.9 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogInSignUp.DataAccess", "LogInSignUp.DataAccess\LogInSignUp.DataAccess.csproj", "{2F94D4BC-5F97-4779-8CFC-C9880F597B3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogInSignUp.BusinessLogic", "LogInSignUp.BusinessLogic\LogInSignUp.BusinessLogic.csproj", "{386473AC-B767-4E21-96AF-CA97A3FB17FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogInSignUp.API", "LogInSignUp.API\LogInSignUp.API.csproj", "{6677DF92-BCAE-467D-838F-4B58A4F2AD7E}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F94D4BC-5F97-4779-8CFC-C9880F597B3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F94D4BC-5F97-4779-8CFC-C9880F597B3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F94D4BC-5F97-4779-8CFC-C9880F597B3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F94D4BC-5F97-4779-8CFC-C9880F597B3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{386473AC-B767-4E21-96AF-CA97A3FB17FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{386473AC-B767-4E21-96AF-CA97A3FB17FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{386473AC-B767-4E21-96AF-CA97A3FB17FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{386473AC-B767-4E21-96AF-CA97A3FB17FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6677DF92-BCAE-467D-838F-4B58A4F2AD7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6677DF92-BCAE-467D-838F-4B58A4F2AD7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6677DF92-BCAE-467D-838F-4B58A4F2AD7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6677DF92-BCAE-467D-838F-4B58A4F2AD7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

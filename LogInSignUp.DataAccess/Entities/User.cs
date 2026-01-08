@@ -13,13 +13,13 @@ namespace LogInSignUp.DataAccess.Entities
         public string UserName { get; set; }
         public string Email { get; set; }
         public bool IsEmailVerified { get; set; }
-        public string EmailVerificationToken { get; set; }
+        public string EmailVerificationTokenHash { get; set; }
         public DateTime EmailVerificationTokenEndDate { get; set; }
         public string PasswordHash { get; set; }
-        public string PasswordResetToken { get; set; }
-        public DateTime PasswordResetTokenEndDate { get; set; }
+        public string? PasswordResetTokenHash { get; set; }
+        public DateTime? PasswordResetTokenEndDate { get; set; }
         public bool IsPasswordResetTokenUsed { get; set; }
-        public string RefreshToken { get; set; }
-        public DateTime RefreshTokenEndDate { get; set; }
+        public string? RefreshTokenHash { get; set; }
+        public DateTime? RefreshTokenEndDate { get; set; }
     }
 }
