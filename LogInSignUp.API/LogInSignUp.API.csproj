@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\LogInSignUp.BusinessLogic\LogInSignUp.BusinessLogic.csproj" />
   </ItemGroup>
 

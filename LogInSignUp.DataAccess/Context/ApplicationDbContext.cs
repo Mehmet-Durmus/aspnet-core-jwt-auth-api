@@ -32,10 +32,7 @@ namespace LogInSignUp.DataAccess.Context
                 user.Property(u => u.IsActive).HasDefaultValue(true);
                 user.HasIndex(u => u.UserName).IsUnique();
                 user.HasIndex(u => u.Email).IsUnique();
-            });
-            modelBuilder.Entity<BaseEntity>(entity => 
-            {
-                entity.HasQueryFilter(e => e.IsActive);
+                user.HasQueryFilter(u => u.IsActive);
             });
         }
 

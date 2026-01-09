@@ -22,7 +22,7 @@ namespace LogInSignUp.DataAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("LogInSignUp.DataAccess.Entities.User", b =>
+            modelBuilder.Entity("LogInSignUp.DataAccess.Entities.BaseEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -30,6 +30,32 @@ namespace LogInSignUp.DataAccess.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasMaxLength(13)
+                        .HasColumnType("nvarchar(13)");
+
+                    b.Property<bool>("IsActive")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BaseEntity");
+
+                    b.HasDiscriminator().HasValue("BaseEntity");
+
+                    b.UseTphMappingStrategy();
+                });
+
+            modelBuilder.Entity("LogInSignUp.DataAccess.Entities.User", b =>
+                {
+                    b.HasBaseType("LogInSignUp.DataAccess.Entities.BaseEntity");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -42,11 +68,6 @@ namespace LogInSignUp.DataAccess.Migrations
                     b.Property<byte[]>("EmailVerificationTokenHash")
                         .IsRequired()
                         .HasColumnType("varbinary(32)");
-
-                    b.Property<bool>("IsActive")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(true);
 
                     b.Property<bool>("IsEmailVerified")
                         .ValueGeneratedOnAdd()
@@ -83,23 +104,20 @@ namespace LogInSignUp.DataAccess.Migrations
                     b.Property<byte[]>("RefreshTokenHash")
                         .HasColumnType("varbinary(32)");
 
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("UserName")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("Id");
-
                     b.HasIndex("Email")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[Email] IS NOT NULL");
 
                     b.HasIndex("UserName")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[UserName] IS NOT NULL");
 
-                    b.ToTable("Users");
+                    b.HasDiscriminator().HasValue("User");
                 });
 #pragma warning restore 612, 618
         }
