@@ -22,7 +22,12 @@ namespace LogInSignUp.DataAccess.Concretes
 
         public async Task<bool> EmailExistsAsync(string email)
         {
-            return await _dbSet.AnyAsync(x => x.Email == email);
+            return await _dbSet.IgnoreQueryFilters().AnyAsync(x => x.Email == email);
+        }
+
+        public async Task<bool> UserNameExistsAsync(string userName)
+        {
+            return await _dbSet.IgnoreQueryFilters().AnyAsync(x => x.UserName == userName);
         }
 
         public async Task<User> GetUserByEmail(string email)
@@ -33,11 +38,6 @@ namespace LogInSignUp.DataAccess.Concretes
         public async Task<User> GetUserByUserName(string userName)
         {
             return await _dbSet.FirstAsync(u => u.UserName == userName);
-        }
-
-        public async Task<bool> UserNameExistsAsync(string userName)
-        {
-            return await _dbSet.AnyAsync(x => x.UserName == userName);
         }
     }
 }

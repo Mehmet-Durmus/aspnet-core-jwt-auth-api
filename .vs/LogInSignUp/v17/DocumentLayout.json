@@ -3,28 +3,12 @@
   "WorkspaceRootPath": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2F94D4BC-5F97-4779-8CFC-C9880F597B3D}|LogInSignUp.DataAccess\\LogInSignUp.DataAccess.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.dataaccess\\migrations\\20260108111425_mig1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2F94D4BC-5F97-4779-8CFC-C9880F597B3D}|LogInSignUp.DataAccess\\LogInSignUp.DataAccess.csproj|solutionrelative:loginsignup.dataaccess\\migrations\\20260108111425_mig1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2F94D4BC-5F97-4779-8CFC-C9880F597B3D}|LogInSignUp.DataAccess\\LogInSignUp.DataAccess.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.dataaccess\\context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2F94D4BC-5F97-4779-8CFC-C9880F597B3D}|LogInSignUp.DataAccess\\LogInSignUp.DataAccess.csproj|solutionrelative:loginsignup.dataaccess\\context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2F94D4BC-5F97-4779-8CFC-C9880F597B3D}|LogInSignUp.DataAccess\\LogInSignUp.DataAccess.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.dataaccess\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2F94D4BC-5F97-4779-8CFC-C9880F597B3D}|LogInSignUp.DataAccess\\LogInSignUp.DataAccess.csproj|solutionrelative:loginsignup.dataaccess\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6677DF92-BCAE-467D-838F-4B58A4F2AD7E}|LogInSignUp.API\\LogInSignUp.API.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{6677DF92-BCAE-467D-838F-4B58A4F2AD7E}|LogInSignUp.API\\LogInSignUp.API.csproj|solutionrelative:loginsignup.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6677DF92-BCAE-467D-838F-4B58A4F2AD7E}|LogInSignUp.API\\LogInSignUp.API.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6677DF92-BCAE-467D-838F-4B58A4F2AD7E}|LogInSignUp.API\\LogInSignUp.API.csproj|solutionrelative:loginsignup.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2F94D4BC-5F97-4779-8CFC-C9880F597B3D}|LogInSignUp.DataAccess\\LogInSignUp.DataAccess.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.dataaccess\\entities\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2F94D4BC-5F97-4779-8CFC-C9880F597B3D}|LogInSignUp.DataAccess\\LogInSignUp.DataAccess.csproj|solutionrelative:loginsignup.dataaccess\\entities\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6677DF92-BCAE-467D-838F-4B58A4F2AD7E}|LogInSignUp.API\\LogInSignUp.API.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6677DF92-BCAE-467D-838F-4B58A4F2AD7E}|LogInSignUp.API\\LogInSignUp.API.csproj|solutionrelative:loginsignup.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,32 +27,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "20260108111425_mig1.cs",
-              "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.DataAccess\\Migrations\\20260108111425_mig1.cs",
-              "RelativeDocumentMoniker": "LogInSignUp.DataAccess\\Migrations\\20260108111425_mig1.cs",
-              "ToolTip": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.DataAccess\\Migrations\\20260108111425_mig1.cs",
-              "RelativeToolTip": "LogInSignUp.DataAccess\\Migrations\\20260108111425_mig1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T11:14:25.941Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.API\\Program.cs",
               "RelativeDocumentMoniker": "LogInSignUp.API\\Program.cs",
               "ToolTip": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.API\\Program.cs",
               "RelativeToolTip": "LogInSignUp.API\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA0wBEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-08T10:04:35.131Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.API\\appsettings.json",
               "RelativeDocumentMoniker": "LogInSignUp.API\\appsettings.json",
@@ -77,45 +48,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-01-08T10:03:28.624Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.DataAccess\\Context\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "LogInSignUp.DataAccess\\Context\\ApplicationDbContext.cs",
-              "ToolTip": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.DataAccess\\Context\\ApplicationDbContext.cs",
-              "RelativeToolTip": "LogInSignUp.DataAccess\\Context\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAYwB4AAABVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T09:43:32.333Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.DataAccess\\Entities\\User.cs",
-              "RelativeDocumentMoniker": "LogInSignUp.DataAccess\\Entities\\User.cs",
-              "ToolTip": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.DataAccess\\Entities\\User.cs",
-              "RelativeToolTip": "LogInSignUp.DataAccess\\Entities\\User.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAowBUAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T09:28:14.866Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "BaseEntity.cs",
-              "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.DataAccess\\Entities\\BaseEntity.cs",
-              "RelativeDocumentMoniker": "LogInSignUp.DataAccess\\Entities\\BaseEntity.cs",
-              "ToolTip": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.DataAccess\\Entities\\BaseEntity.cs",
-              "RelativeToolTip": "LogInSignUp.DataAccess\\Entities\\BaseEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T09:27:21.343Z",
               "EditorCaption": ""
             }
           ]

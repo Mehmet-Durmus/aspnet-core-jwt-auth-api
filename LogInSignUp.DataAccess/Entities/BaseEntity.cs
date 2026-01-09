@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogInSignUp.DataAccess.Entities
 {
-    public class BaseEntity
+    public abstract class BaseEntity
     {
         public Guid Id { get; set; }
         public bool IsActive { get; set; }

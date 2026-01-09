@@ -18,20 +18,24 @@ namespace LogInSignUp.DataAccess.Context
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<User>(entity => 
+            modelBuilder.Entity<User>(user => 
             {
-                entity.Property(x => x.Name).HasMaxLength(50);
-                entity.Property(x => x.LastName).HasMaxLength(50);
-                entity.Property(x => x.UserName).HasMaxLength(50);
-                entity.Property(x => x.Email).HasMaxLength(50);
-                entity.Property(x => x.IsEmailVerified).HasDefaultValue(false);
-                entity.Property(x => x.EmailVerificationTokenHash).HasColumnType("varbinary(32)");
-                entity.Property(x => x.PasswordHash).HasMaxLength(255);
-                entity.Property(x => x.PasswordResetTokenHash).HasColumnType("varbinary(32)");
-                entity.Property(x => x.RefreshTokenHash).HasColumnType("varbinary(32)");
-                entity.Property(x => x.IsActive).HasDefaultValue(true);
-                entity.HasIndex(x => x.UserName).IsUnique();
-                entity.HasIndex(x => x.Email).IsUnique();
+                user.Property(u => u.Name).HasMaxLength(50);
+                user.Property(u => u.LastName).HasMaxLength(50);
+                user.Property(u => u.UserName).HasMaxLength(50);
+                user.Property(u => u.Email).HasMaxLength(50);
+                user.Property(u => u.IsEmailVerified).HasDefaultValue(false);
+                user.Property(u => u.EmailVerificationTokenHash).HasColumnType("varbinary(32)");
+                user.Property(u => u.PasswordHash).HasMaxLength(255);
+                user.Property(u => u.PasswordResetTokenHash).HasColumnType("varbinary(32)");
+                user.Property(u => u.RefreshTokenHash).HasColumnType("varbinary(32)");
+                user.Property(u => u.IsActive).HasDefaultValue(true);
+                user.HasIndex(u => u.UserName).IsUnique();
+                user.HasIndex(u => u.Email).IsUnique();
+            });
+            modelBuilder.Entity<BaseEntity>(entity => 
+            {
+                entity.HasQueryFilter(e => e.IsActive);
             });
         }
 

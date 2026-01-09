@@ -1,6 +1,7 @@
 ﻿using LogInSignUp.DataAccess.Abstracts;
 using LogInSignUp.DataAccess.Context;
 using LogInSignUp.DataAccess.Entities;
+using LogInSignUp.DataAccess.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
@@ -21,34 +22,37 @@ namespace LogInSignUp.DataAccess.Concretes
             _dbSet = _context.Set<T>();
         }
 
-        public async Task<bool> AddAsync(T entity)
+        public async Task AddAsync(T entity)
         {
-            EntityEntry<T> entityEntry = await _dbSet.AddAsync(entity);
+            await _dbSet.AddAsync(entity);
             await _context.SaveChangesAsync();
-            return entityEntry.State == EntityState.Added;
         }
 
-        public async Task<bool> DeleteAsync(Guid id)
+        public async Task<DeleteResult> DeleteAsync(Guid id)
         {
-            T entity = await _dbSet.FindAsync(id);
-            if (entity != null)
+            T? entity = await _dbSet.FindAsync(id);
+
+            if (entity == null)
+                return DeleteResult.NotFound;
+            else if (!entity.IsActive)
+                return DeleteResult.AlreadyDeleted;
+            else
             {
                 entity.IsActive = false;
-                return await UpdateAsync(entity);
+                await UpdateAsync(entity);
+                return DeleteResult.Deleted;
             }
-            return false;
         }
 
         public IQueryable<T> GetAll()
             => _dbSet;
 
-        public async Task<T> GetAsync(Guid id) => await _dbSet.FindAsync(id);
+        public async Task<T?> GetAsync(Guid id) => await _dbSet.FindAsync(id);
 
-        public async Task<bool> UpdateAsync(T entity)
+        public async Task UpdateAsync(T entity)
         {
-            EntityEntry<T> entityEntry = _dbSet.Update(entity);
+            _dbSet.Update(entity);
             await _context.SaveChangesAsync();
-            return entityEntry.State == EntityState.Modified;
         }
     }
 }

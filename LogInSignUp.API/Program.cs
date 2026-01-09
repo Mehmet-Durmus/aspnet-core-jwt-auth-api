@@ -1,4 +1,6 @@
 
+using LogInSignUp.DataAccess.Abstracts;
+using LogInSignUp.DataAccess.Concretes;
 using LogInSignUp.DataAccess.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +15,9 @@ namespace LogInSignUp.API
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"))
             );
+
+            builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
