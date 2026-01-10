@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LogInSignUp.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260108111425_mig1")]
+    [Migration("20260110202004_mig1")]
     partial class mig1
     {
         /// <inheritdoc />
@@ -39,11 +39,10 @@ namespace LogInSignUp.DataAccess.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<DateTime>("EmailVerificationTokenEndDate")
+                    b.Property<DateTime?>("EmailVerificationTokenEndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<byte[]>("EmailVerificationTokenHash")
-                        .IsRequired()
                         .HasColumnType("varbinary(32)");
 
                     b.Property<bool>("IsActive")

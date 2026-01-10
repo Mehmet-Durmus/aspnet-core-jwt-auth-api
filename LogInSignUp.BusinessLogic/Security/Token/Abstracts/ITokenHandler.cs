@@ -8,6 +8,6 @@ namespace LogInSignUp.BusinessLogic.Security.Token.Abstracts
 {
     public interface ITokenHandler
     {
-        string CreateEmailVerificationToken();
+        string CreateToken();
     }
 }

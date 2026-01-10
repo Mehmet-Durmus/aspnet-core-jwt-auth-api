@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogInSignUp.BusinessLogic.Configuration
+namespace LogInSignUp.BusinessLogic.Configuration.Token
 {
     public class TokenSettings
     {

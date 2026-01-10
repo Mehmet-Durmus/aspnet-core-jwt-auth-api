@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogInSignUp.BusinessLogic.UserManagement.Absracts
+namespace LogInSignUp.BusinessLogic.Abstracts
 {
     public interface IUserManager
     {
         Task CreateUserAsync(CreateUserDto createUserDto);
+        Task VerifyEmail(string userId, string verificationToken);
     }
 }

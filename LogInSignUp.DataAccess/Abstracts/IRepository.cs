@@ -12,7 +12,7 @@ namespace LogInSignUp.DataAccess.Abstracts
     {
         Task<T?> GetAsync(Guid id);
         IQueryable<T> GetAll();
-        Task AddAsync(T entity);
+        Task<T> AddAsync(T entity);
         Task UpdateAsync(T entity);
         Task<DeleteResult> DeleteAsync(Guid id);
     }

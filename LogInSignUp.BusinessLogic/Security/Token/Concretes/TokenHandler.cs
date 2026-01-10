@@ -11,7 +11,7 @@ namespace LogInSignUp.BusinessLogic.Security.Token.Concretes
 {
     public class TokenHandler : ITokenHandler
     {
-        public string CreateEmailVerificationToken()
+        public string CreateToken()
         {
             byte[] bytes = RandomNumberGenerator.GetBytes(32);
             return WebEncoders.Base64UrlEncode(bytes);

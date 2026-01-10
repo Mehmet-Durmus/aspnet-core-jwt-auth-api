@@ -22,10 +22,11 @@ namespace LogInSignUp.DataAccess.Concretes
             _dbSet = _context.Set<T>();
         }
 
-        public async Task AddAsync(T entity)
+        public async Task<T> AddAsync(T entity)
         {
-            await _dbSet.AddAsync(entity);
+            _dbSet.Add(entity);
             await _context.SaveChangesAsync();
+            return entity;
         }
 
         public async Task<DeleteResult> DeleteAsync(Guid id)
