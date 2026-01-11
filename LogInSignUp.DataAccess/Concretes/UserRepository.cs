@@ -32,12 +32,12 @@ namespace LogInSignUp.DataAccess.Concretes
 
         public async Task<User> GetUserByEmail(string email)
         {
-            return await _dbSet.FirstAsync(u => u.Email== email);
+            return await _dbSet.FirstOrDefaultAsync(u => u.Email== email);
         }
 
         public async Task<User> GetUserByUserName(string userName)
         {
-            return await _dbSet.FirstAsync(u => u.UserName == userName);
+            return await _dbSet.FirstOrDefaultAsync(u => u.UserName == userName);
         }
     }
 }

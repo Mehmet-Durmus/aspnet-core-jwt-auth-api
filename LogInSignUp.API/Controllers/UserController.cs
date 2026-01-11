@@ -1,5 +1,6 @@
 ﻿using LogInSignUp.BusinessLogic.Abstracts;
 using LogInSignUp.BusinessLogic.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,9 +8,10 @@ namespace LogInSignUp.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UserController : ApiBaseController
     {
         private readonly IUserManager _userManager;
+
 
         public UserController(IUserManager userManager)
         {
@@ -36,5 +38,6 @@ namespace LogInSignUp.API.Controllers
             await _userManager.SendNewVerificationEmail(userId);
             return Ok();
         }
+
     }
 }

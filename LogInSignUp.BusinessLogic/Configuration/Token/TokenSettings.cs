@@ -9,5 +9,6 @@ namespace LogInSignUp.BusinessLogic.Configuration.Token
     public sealed class TokenSettings
     {
         public EmailVerificationSettings EmailVerificationSettings { get; set; } = null!;
+        public required JwtSettings JwtSettings { get; set; }
     }
 }
