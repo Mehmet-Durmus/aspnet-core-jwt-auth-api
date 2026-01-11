@@ -25,7 +25,8 @@ namespace LogInSignUp.BusinessLogic.Concretes
         public async Task SendEmailVerificationMail(User user, string emailVerificationToken)
         {
             string url = _settings.BaseUrl.EndsWith("/") ? _settings.BaseUrl[..^1] : _settings.BaseUrl;
-            string mailBody = $"{_settings.MailBody}<br>{url}/verify-email/{user.Id}/{emailVerificationToken}";
+            string mailBody = $"{_settings.MailBody}<br><br><strong><a target=\"_blank\" href=\"{url}/verify-email/{user.Id}/{emailVerificationToken}\">Epostanı doğrula</a></strong>";
+            //string mailBody = $"<a href=\"https://google.com\">Test</a>";
             await SendMailAsync(user.Email,
                 _settings.Subject,
                 mailBody,

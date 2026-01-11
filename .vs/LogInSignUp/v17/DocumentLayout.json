@@ -3,6 +3,25 @@
   "WorkspaceRootPath": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.businesslogic\\concretes\\mailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|solutionrelative:loginsignup.businesslogic\\concretes\\mailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/LogInSignUp/True/SqlTable/dbo.Users.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.businesslogic\\abstracts\\imailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|solutionrelative:loginsignup.businesslogic\\abstracts\\imailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6677DF92-BCAE-467D-838F-4B58A4F2AD7E}|LogInSignUp.API\\LogInSignUp.API.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6677DF92-BCAE-467D-838F-4B58A4F2AD7E}|LogInSignUp.API\\LogInSignUp.API.csproj|solutionrelative:loginsignup.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.businesslogic\\concretes\\usermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|solutionrelative:loginsignup.businesslogic\\concretes\\usermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6677DF92-BCAE-467D-838F-4B58A4F2AD7E}|LogInSignUp.API\\LogInSignUp.API.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6677DF92-BCAE-467D-838F-4B58A4F2AD7E}|LogInSignUp.API\\LogInSignUp.API.csproj|solutionrelative:loginsignup.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,59 +30,16 @@
       "RelativeMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|solutionrelative:loginsignup.businesslogic\\configuration\\mail\\emailverificationsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.businesslogic\\concretes\\usermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|solutionrelative:loginsignup.businesslogic\\concretes\\usermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.businesslogic\\abstracts\\iusermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|solutionrelative:loginsignup.businesslogic\\abstracts\\iusermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.businesslogic\\abstracts\\imailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|solutionrelative:loginsignup.businesslogic\\abstracts\\imailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.businesslogic\\exceptions\\invalidtokenexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|solutionrelative:loginsignup.businesslogic\\exceptions\\invalidtokenexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.businesslogic\\exceptions\\tokenexpiredexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|solutionrelative:loginsignup.businesslogic\\exceptions\\tokenexpiredexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.businesslogic\\exceptions\\usernotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|solutionrelative:loginsignup.businesslogic\\exceptions\\usernotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/LogInSignUp/True/SqlTable/dbo.Users.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6677DF92-BCAE-467D-838F-4B58A4F2AD7E}|LogInSignUp.API\\LogInSignUp.API.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.api\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6677DF92-BCAE-467D-838F-4B58A4F2AD7E}|LogInSignUp.API\\LogInSignUp.API.csproj|solutionrelative:loginsignup.api\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.businesslogic\\concretes\\mailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|solutionrelative:loginsignup.businesslogic\\concretes\\mailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.businesslogic\\security\\token\\concretes\\tokenhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|solutionrelative:loginsignup.businesslogic\\security\\token\\concretes\\tokenhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.businesslogic\\security\\token\\abstracts\\itokenhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|solutionrelative:loginsignup.businesslogic\\security\\token\\abstracts\\itokenhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.businesslogic\\security\\token\\concretes\\tokenhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{386473AC-B767-4E21-96AF-CA97A3FB17FD}|LogInSignUp.BusinessLogic\\LogInSignUp.BusinessLogic.csproj|solutionrelative:loginsignup.businesslogic\\security\\token\\concretes\\tokenhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2F94D4BC-5F97-4779-8CFC-C9880F597B3D}|LogInSignUp.DataAccess\\LogInSignUp.DataAccess.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.dataaccess\\concretes\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2F94D4BC-5F97-4779-8CFC-C9880F597B3D}|LogInSignUp.DataAccess\\LogInSignUp.DataAccess.csproj|solutionrelative:loginsignup.dataaccess\\concretes\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6677DF92-BCAE-467D-838F-4B58A4F2AD7E}|LogInSignUp.API\\LogInSignUp.API.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{6677DF92-BCAE-467D-838F-4B58A4F2AD7E}|LogInSignUp.API\\LogInSignUp.API.csproj|solutionrelative:loginsignup.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2F94D4BC-5F97-4779-8CFC-C9880F597B3D}|LogInSignUp.DataAccess\\LogInSignUp.DataAccess.csproj|d:\\projeler\\loginsignup\\loginsignup\\loginsignup.dataaccess\\abstracts\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -85,7 +61,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -93,121 +69,17 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IUserManager.cs",
-              "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.BusinessLogic\\Abstracts\\IUserManager.cs",
-              "RelativeDocumentMoniker": "LogInSignUp.BusinessLogic\\Abstracts\\IUserManager.cs",
-              "ToolTip": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.BusinessLogic\\Abstracts\\IUserManager.cs",
-              "RelativeToolTip": "LogInSignUp.BusinessLogic\\Abstracts\\IUserManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-10T21:24:01.623Z",
+              "DocumentIndex": 1,
+              "Title": "dbo.Users [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/LogInSignUp/True/SqlTable/dbo.Users.sql",
+              "ToolTip": "dbo.Users [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-01-11T11:49:59.918Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "InvalidTokenException.cs",
-              "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.BusinessLogic\\Exceptions\\InvalidTokenException.cs",
-              "RelativeDocumentMoniker": "LogInSignUp.BusinessLogic\\Exceptions\\InvalidTokenException.cs",
-              "ToolTip": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.BusinessLogic\\Exceptions\\InvalidTokenException.cs",
-              "RelativeToolTip": "LogInSignUp.BusinessLogic\\Exceptions\\InvalidTokenException.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-10T21:06:56.163Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "TokenExpiredException.cs",
-              "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.BusinessLogic\\Exceptions\\TokenExpiredException.cs",
-              "RelativeDocumentMoniker": "LogInSignUp.BusinessLogic\\Exceptions\\TokenExpiredException.cs",
-              "ToolTip": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.BusinessLogic\\Exceptions\\TokenExpiredException.cs",
-              "RelativeToolTip": "LogInSignUp.BusinessLogic\\Exceptions\\TokenExpiredException.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-10T21:00:50.755Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "TokenHasher.cs",
-              "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.BusinessLogic\\Security\\Token\\Concretes\\TokenHasher.cs",
-              "RelativeDocumentMoniker": "LogInSignUp.BusinessLogic\\Security\\Token\\Concretes\\TokenHasher.cs",
-              "ToolTip": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.BusinessLogic\\Security\\Token\\Concretes\\TokenHasher.cs",
-              "RelativeToolTip": "LogInSignUp.BusinessLogic\\Security\\Token\\Concretes\\TokenHasher.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-10T20:47:50.242Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ITokenHandler.cs",
-              "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.BusinessLogic\\Security\\Token\\Abstracts\\ITokenHandler.cs",
-              "RelativeDocumentMoniker": "LogInSignUp.BusinessLogic\\Security\\Token\\Abstracts\\ITokenHandler.cs",
-              "ToolTip": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.BusinessLogic\\Security\\Token\\Abstracts\\ITokenHandler.cs",
-              "RelativeToolTip": "LogInSignUp.BusinessLogic\\Security\\Token\\Abstracts\\ITokenHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-10T20:47:09.758Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UserNotFoundException.cs",
-              "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.BusinessLogic\\Exceptions\\UserNotFoundException.cs",
-              "RelativeDocumentMoniker": "LogInSignUp.BusinessLogic\\Exceptions\\UserNotFoundException.cs",
-              "ToolTip": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.BusinessLogic\\Exceptions\\UserNotFoundException.cs",
-              "RelativeToolTip": "LogInSignUp.BusinessLogic\\Exceptions\\UserNotFoundException.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-10T20:43:29.057Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "dbo.Users [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/LogInSignUp/True/SqlTable/dbo.Users.sql",
-              "ToolTip": "dbo.Users [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-01-10T20:21:51.454Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Repository.cs",
-              "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.DataAccess\\Concretes\\Repository.cs",
-              "RelativeDocumentMoniker": "LogInSignUp.DataAccess\\Concretes\\Repository.cs",
-              "ToolTip": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.DataAccess\\Concretes\\Repository.cs",
-              "RelativeToolTip": "LogInSignUp.DataAccess\\Concretes\\Repository.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAowBwAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-10T20:06:17.753Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "IRepository.cs",
-              "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.DataAccess\\Abstracts\\IRepository.cs",
-              "RelativeDocumentMoniker": "LogInSignUp.DataAccess\\Abstracts\\IRepository.cs",
-              "ToolTip": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.DataAccess\\Abstracts\\IRepository.cs",
-              "RelativeToolTip": "LogInSignUp.DataAccess\\Abstracts\\IRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-10T20:05:56.662Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "UserController.cs",
               "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.API\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "LogInSignUp.API\\Controllers\\UserController.cs",
@@ -220,7 +92,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 9,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.DataAccess\\Concretes\\Repository.cs",
+              "RelativeDocumentMoniker": "LogInSignUp.DataAccess\\Concretes\\Repository.cs",
+              "ToolTip": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.DataAccess\\Concretes\\Repository.cs",
+              "RelativeToolTip": "LogInSignUp.DataAccess\\Concretes\\Repository.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAowBwAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-10T20:06:17.753Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.DataAccess\\Abstracts\\IRepository.cs",
+              "RelativeDocumentMoniker": "LogInSignUp.DataAccess\\Abstracts\\IRepository.cs",
+              "ToolTip": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.DataAccess\\Abstracts\\IRepository.cs",
+              "RelativeToolTip": "LogInSignUp.DataAccess\\Abstracts\\IRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-10T20:05:56.662Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "TokenHandler.cs",
               "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.BusinessLogic\\Security\\Token\\Concretes\\TokenHandler.cs",
               "RelativeDocumentMoniker": "LogInSignUp.BusinessLogic\\Security\\Token\\Concretes\\TokenHandler.cs",
@@ -233,7 +131,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "EmailVerificationSettings.cs",
               "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.BusinessLogic\\Configuration\\Mail\\EmailVerificationSettings.cs",
               "RelativeDocumentMoniker": "LogInSignUp.BusinessLogic\\Configuration\\Mail\\EmailVerificationSettings.cs",
@@ -246,20 +144,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.API\\appsettings.json",
               "RelativeDocumentMoniker": "LogInSignUp.API\\appsettings.json",
               "ToolTip": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.API\\appsettings.json",
               "RelativeToolTip": "LogInSignUp.API\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-01-10T17:48:35.975Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 12,
               "Title": "TokenSettings.cs",
               "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.BusinessLogic\\Configuration\\Token\\TokenSettings.cs",
               "RelativeDocumentMoniker": "LogInSignUp.BusinessLogic\\Configuration\\Token\\TokenSettings.cs",
@@ -272,7 +170,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 7,
               "Title": "TestController.cs",
               "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.API\\Controllers\\TestController.cs",
               "RelativeDocumentMoniker": "LogInSignUp.API\\Controllers\\TestController.cs",
@@ -285,7 +183,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 11,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.API\\Program.cs",
               "RelativeDocumentMoniker": "LogInSignUp.API\\Program.cs",
@@ -298,20 +196,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 0,
               "Title": "MailService.cs",
               "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.BusinessLogic\\Concretes\\MailService.cs",
               "RelativeDocumentMoniker": "LogInSignUp.BusinessLogic\\Concretes\\MailService.cs",
-              "ToolTip": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.BusinessLogic\\Concretes\\MailService.cs",
-              "RelativeToolTip": "LogInSignUp.BusinessLogic\\Concretes\\MailService.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAuwBwAAAArAAAAAAAAAA==",
+              "ToolTip": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.BusinessLogic\\Concretes\\MailService.cs \u2B24",
+              "RelativeToolTip": "LogInSignUp.BusinessLogic\\Concretes\\MailService.cs \u2B24",
+              "ViewState": "AgIAABMAAAAAAAAAAAAYwBsAAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-10T14:51:02.435Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "IMailService.cs",
               "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.BusinessLogic\\Abstracts\\IMailService.cs",
               "RelativeDocumentMoniker": "LogInSignUp.BusinessLogic\\Abstracts\\IMailService.cs",
@@ -324,13 +222,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "UserManager.cs",
               "DocumentMoniker": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.BusinessLogic\\Concretes\\UserManager.cs",
               "RelativeDocumentMoniker": "LogInSignUp.BusinessLogic\\Concretes\\UserManager.cs",
               "ToolTip": "D:\\Projeler\\LogInSignUp\\LogInSignUp\\LogInSignUp.BusinessLogic\\Concretes\\UserManager.cs",
               "RelativeToolTip": "LogInSignUp.BusinessLogic\\Concretes\\UserManager.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAMwEgAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAADsAAAAAAAAAAAAMwEYAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-09T19:48:44.664Z",
               "EditorCaption": ""
