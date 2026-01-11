@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogInSignUp.BusinessLogic.Configuration.Mail
 {
-    public sealed class EmailVerificationSettings
+    public sealed class EmailVerificationMailSettings
     {
         public string EmailAddress { get; set; } = null!;
         public string Password { get; set; } = null!;

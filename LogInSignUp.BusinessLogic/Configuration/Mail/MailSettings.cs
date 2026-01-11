@@ -8,6 +8,6 @@ namespace LogInSignUp.BusinessLogic.Configuration.Mail
 {
     public sealed class MailSettings
     {
-        public EmailVerificationSettings EmailVerificationSettings { get; set; }
+        public EmailVerificationMailSettings EmailVerificationSettings { get; set; } = null!;
     }
 }

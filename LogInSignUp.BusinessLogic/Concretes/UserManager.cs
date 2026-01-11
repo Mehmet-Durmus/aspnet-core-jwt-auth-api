@@ -1,18 +1,12 @@
-﻿using LogInSignUp.BusinessLogic.DTOs;
-using LogInSignUp.BusinessLogic.Exceptions;
-using LogInSignUp.DataAccess.Abstracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
-using LogInSignUp.DataAccess.Entities;
-using LogInSignUp.BusinessLogic.Security.Password.Abstracts;
-using Microsoft.Extensions.Options;
-using LogInSignUp.BusinessLogic.Security.Token.Abstracts;
+﻿using AutoMapper;
 using LogInSignUp.BusinessLogic.Abstracts;
 using LogInSignUp.BusinessLogic.Configuration.Token;
+using LogInSignUp.BusinessLogic.DTOs;
+using LogInSignUp.BusinessLogic.Exceptions;
+using LogInSignUp.BusinessLogic.Security.Password.Abstracts;
+using LogInSignUp.BusinessLogic.Security.Token.Abstracts;
+using LogInSignUp.DataAccess.Abstracts;
+using LogInSignUp.DataAccess.Entities;
 
 namespace LogInSignUp.BusinessLogic.Concretes
 {
@@ -22,6 +16,7 @@ namespace LogInSignUp.BusinessLogic.Concretes
         private readonly IMapper _mapper;
         private readonly IPasswordHasher _passwordHasher;
         private readonly TokenSettings _tokenSettings;
+        private readonly EmailVerificationSettings _emailVerificationSettings;
         private readonly ITokenHandler _tokenHandler;
         private readonly ITokenHasher _tokenHasher;
         private readonly IMailService _mailService;
@@ -39,6 +34,7 @@ namespace LogInSignUp.BusinessLogic.Concretes
             _mapper = mapper;
             _passwordHasher = passwordHasher;
             _tokenSettings = tokenSettings;
+            _emailVerificationSettings = _tokenSettings.EmailVerificationSettings;
             _tokenHandler = tokenHandler;
             _tokenHasher = tokenHasher;
             _mailService = mailService;
@@ -57,11 +53,7 @@ namespace LogInSignUp.BusinessLogic.Concretes
             user.PasswordHash = _passwordHasher.Hash(createUserDto.Password);
             user = await _userRepository.AddAsync(user);
 
-            string emailVerificationToken = _tokenHandler.CreateToken();
-            await _mailService.SendEmailVerificationMail(user, emailVerificationToken);
-            user.EmailVerificationTokenHash = _tokenHasher.Hash(emailVerificationToken);
-            user.EmailVerificationTokenEndDate = DateTime.UtcNow.AddMinutes(_tokenSettings.EmailVerificationTokenLifeTimeInMinutes);
-            await _userRepository.UpdateAsync(user);
+            await IssueEmailVerificationAsync(user);
         }
         public async Task VerifyEmail(string userId, string verificationToken)
         {
@@ -74,6 +66,27 @@ namespace LogInSignUp.BusinessLogic.Concretes
                 throw new InvalidTokenException("Email verification token is invalid.");
             user.IsEmailVerified = true;
             user.EmailVerificationTokenHash = null;
+            await _userRepository.UpdateAsync(user);
+        }
+
+        public async Task SendNewVerificationEmail(string userId)
+        {
+            User? user = await _userRepository.GetAsync(Guid.Parse(userId));
+            if (user == null)
+                throw new UserNotFoundException();
+            if (user.IsEmailVerified)
+                throw new EmailAlreadyVerifiedException();
+            if (DateTime.UtcNow.AddSeconds(-_emailVerificationSettings.ResendCooldownSeconds) > user.EmailVerificationTokenSentAt)
+                await IssueEmailVerificationAsync(user);
+        }
+
+        private async Task IssueEmailVerificationAsync(User user)
+        {
+            string emailVerificationToken = _tokenHandler.CreateToken();
+            await _mailService.SendEmailVerificationMail(user, emailVerificationToken);
+            user.EmailVerificationTokenHash = _tokenHasher.Hash(emailVerificationToken);
+            user.EmailVerificationTokenEndDate = DateTime.UtcNow.AddMinutes(_emailVerificationSettings.TokenLifetimeMinutes);
+            user.EmailVerificationTokenSentAt = DateTime.UtcNow;
             await _userRepository.UpdateAsync(user);
         }
     }

@@ -14,28 +14,27 @@ namespace LogInSignUp.BusinessLogic.Concretes
     public class MailService : IMailService
     {
         private readonly MailSettings _mailSettings;
-        private readonly EmailVerificationSettings _settings;
+        private readonly EmailVerificationMailSettings _emailVerificationSettings;
 
         public MailService(MailSettings mailSettings)
         {
             _mailSettings = mailSettings;
-            _settings = _mailSettings.EmailVerificationSettings;
+            _emailVerificationSettings = _mailSettings.EmailVerificationSettings;
         }
 
         public async Task SendEmailVerificationMail(User user, string emailVerificationToken)
         {
-            string url = _settings.BaseUrl.EndsWith("/") ? _settings.BaseUrl[..^1] : _settings.BaseUrl;
-            string mailBody = $"{_settings.MailBody}<br><br><strong><a target=\"_blank\" href=\"{url}/verify-email/{user.Id}/{emailVerificationToken}\">Epostanı doğrula</a></strong>";
-            //string mailBody = $"<a href=\"https://google.com\">Test</a>";
+            string url = _emailVerificationSettings.BaseUrl.EndsWith("/") ? _emailVerificationSettings.BaseUrl[..^1] : _emailVerificationSettings.BaseUrl;
+            string mailBody = $"{_emailVerificationSettings.MailBody}<br><br><strong><a target=\"_blank\" href=\"{url}/verify-email/{user.Id}/{emailVerificationToken}\">Epostanı doğrula</a></strong>";
             await SendMailAsync(user.Email,
-                _settings.Subject,
+                _emailVerificationSettings.Subject,
                 mailBody,
-                _settings.EmailAddress,
-                _settings.DisplayName,
-                _settings.Password,
-                _settings.Port,
-                _settings.EnableSsl,
-                _settings.Host);
+                _emailVerificationSettings.EmailAddress,
+                _emailVerificationSettings.DisplayName,
+                _emailVerificationSettings.Password,
+                _emailVerificationSettings.Port,
+                _emailVerificationSettings.EnableSsl,
+                _emailVerificationSettings.Host);
             
         }
 
@@ -45,15 +44,15 @@ namespace LogInSignUp.BusinessLogic.Concretes
             mail.IsBodyHtml = isBodyHtml;
             foreach (string to in tos)
                 mail.To.Add(to);
-            mail.Subject = subject; // MailSettings
-            mail.Body = body; // MailSettings
-            mail.From = new(from, displayName, System.Text.Encoding.UTF8); // MailSettings
+            mail.Subject = subject;
+            mail.Body = body; 
+            mail.From = new(from, displayName, System.Text.Encoding.UTF8); 
 
             SmtpClient smtp = new();
-            smtp.Credentials = new NetworkCredential(from, password); // "ixzygzhozgwyczoe"
-            smtp.Port = port; // MailSettings
+            smtp.Credentials = new NetworkCredential(from, password); 
+            smtp.Port = port;
             smtp.EnableSsl = enableSSl;
-            smtp.Host = host; // MailSettings
+            smtp.Host = host;
             await smtp.SendMailAsync(mail);
         }
 

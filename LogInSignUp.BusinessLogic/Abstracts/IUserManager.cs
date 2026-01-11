@@ -11,5 +11,6 @@ namespace LogInSignUp.BusinessLogic.Abstracts
     {
         Task CreateUserAsync(CreateUserDto createUserDto);
         Task VerifyEmail(string userId, string verificationToken);
+        Task SendNewVerificationEmail(string userId);
     }
 }

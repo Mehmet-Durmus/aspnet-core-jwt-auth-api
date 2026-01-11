@@ -15,6 +15,7 @@ namespace LogInSignUp.DataAccess.Entities
         public bool IsEmailVerified { get; set; }
         public byte[]? EmailVerificationTokenHash { get; set; }
         public DateTime? EmailVerificationTokenEndDate { get; set; }
+        public DateTime? EmailVerificationTokenSentAt { get; set; }
         public string PasswordHash { get; set; } = null!;
         public byte[]? PasswordResetTokenHash { get; set; }
         public DateTime? PasswordResetTokenEndDate { get; set; }
