@@ -11,6 +11,7 @@ namespace LogInSignUp.BusinessLogic.Abstracts
     {
         Task SendMailAsync(string[] tos, string subject, string body, string from, string displayName, string password, int port, bool enableSSl, string host, bool isBodyHtml = true);
         Task SendMailAsync(string to, string subject, string body, string from, string displayName, string password, int port, bool enableSSl, string host, bool isBodyHtml = true);
-        Task SendEmailVerificationMail(User user, string emailVerificationToken);
+        Task SendEmailVerificationMailAsync(User user, string emailVerificationToken);
+        Task SendResetPasswordMailAsync(User user, string resetPasswordToken);
     }
 }

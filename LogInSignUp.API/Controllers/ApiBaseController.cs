@@ -12,5 +12,7 @@ namespace LogInSignUp.API.Controllers
             => StatusCode(response.StatusCode, response);
         protected IActionResult CreateActionResult(AppResponseDto response)
             => StatusCode(response.StatusCode, response);
+        protected IActionResult NoContentResult()
+            => NoContent();
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LogInSignUp.BusinessLogic.Configuration.Token
 {
-    public sealed class EmailVerificationSettings
+    public class ResetPasswordTokenSettings
     {
         public int TokenLifetimeMinutes { get; set; }
-        public int ResendCooldownSeconds { get; set;}
+        public int ResendCooldownSeconds { get; set; }
     }
 }

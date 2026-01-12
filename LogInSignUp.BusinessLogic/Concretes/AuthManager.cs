@@ -60,7 +60,7 @@ namespace LogInSignUp.BusinessLogic.Concretes
                 await _userManager.UpdateRefreshTokenAsync(user, refreshToken);
                 return token;
             }
-            throw new RefreshTokenExpiredException();
+            throw new TokenExpiredException();
         }
     }
 }

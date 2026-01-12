@@ -15,14 +15,16 @@ namespace LogInSignUp.BusinessLogic.Concretes
     {
         private readonly MailSettings _mailSettings;
         private readonly EmailVerificationMailSettings _emailVerificationSettings;
+        private readonly ResetPasswordMailSettings _resetPasswordSettings;
 
         public MailService(MailSettings mailSettings)
         {
             _mailSettings = mailSettings;
             _emailVerificationSettings = _mailSettings.EmailVerificationSettings;
+            _resetPasswordSettings = _mailSettings.ResetPasswordSettings;
         }
 
-        public async Task SendEmailVerificationMail(User user, string emailVerificationToken)
+        public async Task SendEmailVerificationMailAsync(User user, string emailVerificationToken)
         {
             string url = _emailVerificationSettings.BaseUrl.EndsWith("/") ? _emailVerificationSettings.BaseUrl[..^1] : _emailVerificationSettings.BaseUrl;
             string mailBody = $"{_emailVerificationSettings.MailBody}<br><br><strong><a target=\"_blank\" href=\"{url}/verify-email/{user.Id}/{emailVerificationToken}\">Epostanı doğrula</a></strong>";
@@ -59,6 +61,23 @@ namespace LogInSignUp.BusinessLogic.Concretes
         public async Task SendMailAsync(string to, string subject, string body, string from, string displayName, string password, int port, bool enableSSl, string host, bool isBodyHtml = true)
         {
             await SendMailAsync(new[] { to }, subject, body, from, displayName, password, port, enableSSl, host, isBodyHtml);
+        }
+
+        public async Task SendResetPasswordMailAsync(User user, string resetPasswordToken)
+        {
+            string url = _resetPasswordSettings.BaseUrl.EndsWith("/") ? _resetPasswordSettings.BaseUrl[..^1] : _resetPasswordSettings.BaseUrl;
+            string mailBody = $"{_resetPasswordSettings.MailBody}<br><br><strong><a target=\"_blank\" href=\"{url}/verify-email/{user.Id}/{resetPasswordToken}\">Epostanı doğrula</a></strong>";
+            await SendMailAsync(
+                user.Email,
+                _resetPasswordSettings.Subject,
+                mailBody,
+                _resetPasswordSettings.EmailAddress,
+                _resetPasswordSettings.DisplayName,
+                _resetPasswordSettings.Password,
+                _resetPasswordSettings.Port,
+                _resetPasswordSettings.EnableSsl,
+                _resetPasswordSettings.Host);
+
         }
     }
 }

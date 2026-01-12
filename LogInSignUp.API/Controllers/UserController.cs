@@ -1,4 +1,5 @@
-﻿using LogInSignUp.BusinessLogic.Abstracts;
+﻿using LogInSignUp.API.DTOs;
+using LogInSignUp.BusinessLogic.Abstracts;
 using LogInSignUp.BusinessLogic.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -39,5 +40,25 @@ namespace LogInSignUp.API.Controllers
             return Ok();
         }
 
+        [HttpGet("[action]")]
+        public async Task<IActionResult> SendResetPasswordMail(string userId)
+        {
+            await _userManager.SendResetPasswordMailAsync(userId);
+            return Ok();
+        }
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> VerifyResetPasswordToken(string userId, string resetPasswordToken)
+        {
+            bool result = await _userManager.VerifyResetPasswordTokenAsync(userId, resetPasswordToken);
+            return NoContent();
+        }
+
+        [HttpPut("[action]")]
+        public async Task<IActionResult> UpdatePassword(string userId, string password, string passwordConfirm)
+        {
+            await _userManager.UpdatePassword(userId, password, passwordConfirm);
+            return Ok();
+        }
     }
 }

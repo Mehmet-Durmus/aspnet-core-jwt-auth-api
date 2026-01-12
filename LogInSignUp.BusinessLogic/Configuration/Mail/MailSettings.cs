@@ -9,5 +9,6 @@ namespace LogInSignUp.BusinessLogic.Configuration.Mail
     public sealed class MailSettings
     {
         public EmailVerificationMailSettings EmailVerificationSettings { get; set; } = null!;
+        public ResetPasswordMailSettings ResetPasswordSettings { get; set; } = null!;
     }
 }

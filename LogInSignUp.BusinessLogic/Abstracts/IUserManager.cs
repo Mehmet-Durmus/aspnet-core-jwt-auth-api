@@ -14,5 +14,8 @@ namespace LogInSignUp.BusinessLogic.Abstracts
         Task VerifyEmailAsync(string userId, string verificationToken);
         Task SendNewVerificationEmailAsync(string userId);
         Task UpdateRefreshTokenAsync(User user, string refreshToken);
+        Task SendResetPasswordMailAsync(string userId);
+        Task<bool> VerifyResetPasswordTokenAsync(string userId, string resetPasswordToken);
+        Task UpdatePassword(string userId, string password, string passwordConfirm);
     }
 }
