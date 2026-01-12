@@ -2,6 +2,7 @@
 using LogInSignUp.BusinessLogic.Abstracts;
 using LogInSignUp.BusinessLogic.Configuration.Token;
 using LogInSignUp.BusinessLogic.DTOs;
+using LogInSignUp.BusinessLogic.Enums;
 using LogInSignUp.BusinessLogic.Exceptions;
 using LogInSignUp.BusinessLogic.Security.Password.Abstracts;
 using LogInSignUp.BusinessLogic.Security.Token.Abstracts;
@@ -17,6 +18,7 @@ namespace LogInSignUp.BusinessLogic.Concretes
         private readonly IPasswordHasher _passwordHasher;
         private readonly TokenSettings _tokenSettings;
         private readonly EmailVerificationSettings _emailVerificationSettings;
+        private readonly RefreshTokenSettings _refreshTokenSettings;
         private readonly ITokenHandler _tokenHandler;
         private readonly ITokenHasher _tokenHasher;
         private readonly IMailService _mailService;
@@ -35,6 +37,7 @@ namespace LogInSignUp.BusinessLogic.Concretes
             _passwordHasher = passwordHasher;
             _tokenSettings = tokenSettings;
             _emailVerificationSettings = _tokenSettings.EmailVerificationSettings;
+            _refreshTokenSettings = _tokenSettings.RefreshTokenSettings;
             _tokenHandler = tokenHandler;
             _tokenHasher = tokenHasher;
             _mailService = mailService;
@@ -55,7 +58,7 @@ namespace LogInSignUp.BusinessLogic.Concretes
 
             await IssueEmailVerificationAsync(user);
         }
-        public async Task VerifyEmail(string userId, string verificationToken)
+        public async Task VerifyEmailAsync(string userId, string verificationToken)
         {
             User? user = await _userRepository.GetAsync(Guid.Parse(userId));
             if (user == null)
@@ -69,7 +72,7 @@ namespace LogInSignUp.BusinessLogic.Concretes
             await _userRepository.UpdateAsync(user);
         }
 
-        public async Task SendNewVerificationEmail(string userId)
+        public async Task SendNewVerificationEmailAsync(string userId)
         {
             User? user = await _userRepository.GetAsync(Guid.Parse(userId));
             if (user == null)
@@ -82,12 +85,24 @@ namespace LogInSignUp.BusinessLogic.Concretes
 
         private async Task IssueEmailVerificationAsync(User user)
         {
-            string emailVerificationToken = _tokenHandler.CreateToken();
+            string emailVerificationToken = _tokenHandler.CreateToken(TokenEncoding.UrlSafe);
             await _mailService.SendEmailVerificationMail(user, emailVerificationToken);
             user.EmailVerificationTokenHash = _tokenHasher.Hash(emailVerificationToken);
             user.EmailVerificationTokenEndDate = DateTime.UtcNow.AddMinutes(_emailVerificationSettings.TokenLifetimeMinutes);
             user.EmailVerificationTokenSentAt = DateTime.UtcNow;
             await _userRepository.UpdateAsync(user);
+        }
+
+        public async Task UpdateRefreshTokenAsync(User user, string refreshToken)
+        {
+            if (user != null)
+            {
+                user.RefreshTokenHash = _tokenHasher.Hash(refreshToken);
+                user.RefreshTokenEndDate = DateTime.UtcNow.AddDays(_refreshTokenSettings.TokenLifetimeDays);
+                await _userRepository.UpdateAsync(user);
+            }
+            else
+                throw new UserNotFoundException();
         }
     }
 }

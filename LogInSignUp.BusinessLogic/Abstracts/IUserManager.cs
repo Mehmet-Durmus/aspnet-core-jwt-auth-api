@@ -1,4 +1,5 @@
 ﻿using LogInSignUp.BusinessLogic.DTOs;
+using LogInSignUp.DataAccess.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,8 @@ namespace LogInSignUp.BusinessLogic.Abstracts
     public interface IUserManager
     {
         Task CreateUserAsync(CreateUserDto createUserDto);
-        Task VerifyEmail(string userId, string verificationToken);
-        Task SendNewVerificationEmail(string userId);
+        Task VerifyEmailAsync(string userId, string verificationToken);
+        Task SendNewVerificationEmailAsync(string userId);
+        Task UpdateRefreshTokenAsync(User user, string refreshToken);
     }
 }

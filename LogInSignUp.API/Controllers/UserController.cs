@@ -28,14 +28,14 @@ namespace LogInSignUp.API.Controllers
         [HttpGet("verify-email/{userId}/{verificationToken}")]
         public async Task<IActionResult> VerifyEmail(string userId, string verificationToken)
         {
-            await _userManager.VerifyEmail(userId, verificationToken);
+            await _userManager.VerifyEmailAsync(userId, verificationToken);
             return Ok();
         }
 
         [HttpGet("[action]")]
         public async Task<IActionResult> SendVerificationMail(string userId)
         {
-            await _userManager.SendNewVerificationEmail(userId);
+            await _userManager.SendNewVerificationEmailAsync(userId);
             return Ok();
         }
 

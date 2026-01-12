@@ -10,5 +10,6 @@ namespace LogInSignUp.BusinessLogic.Abstracts
     public interface IAuthManager
     {
         Task<AccessTokenDto> LogInAsync(string userNameOrEmail, string password);
+        Task<AccessTokenDto> RefreshTokenLogInAsyn(string userId, string refreshToken);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using LogInSignUp.BusinessLogic.DTOs;
+using LogInSignUp.BusinessLogic.Enums;
 using LogInSignUp.DataAccess.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace LogInSignUp.BusinessLogic.Security.Token.Abstracts
 {
     public interface ITokenHandler
     {
-        string CreateToken();
         AccessTokenDto CreateAccessToken(User user);
+        string CreateToken(TokenEncoding encoding);
     }
 }

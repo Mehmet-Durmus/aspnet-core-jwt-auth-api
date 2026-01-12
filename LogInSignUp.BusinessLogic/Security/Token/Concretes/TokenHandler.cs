@@ -1,5 +1,6 @@
 ﻿using LogInSignUp.BusinessLogic.Configuration.Token;
 using LogInSignUp.BusinessLogic.DTOs;
+using LogInSignUp.BusinessLogic.Enums;
 using LogInSignUp.BusinessLogic.Security.Token.Abstracts;
 using LogInSignUp.DataAccess.Entities;
 using Microsoft.AspNetCore.WebUtilities;
@@ -47,13 +48,17 @@ namespace LogInSignUp.BusinessLogic.Security.Token.Concretes
                 );
             JwtSecurityTokenHandler tokenHandler = new();
             token.AccessToken = tokenHandler.WriteToken(securityToken);
+            token.RefreshToken = CreateToken(TokenEncoding.Base64);
             return token;
         }
-
-        public string CreateToken()
+        public string CreateToken(TokenEncoding encoding)
         {
             byte[] bytes = RandomNumberGenerator.GetBytes(32);
-            return WebEncoders.Base64UrlEncode(bytes);
+            return encoding switch
+            {
+                TokenEncoding.UrlSafe => WebEncoders.Base64UrlEncode(bytes),
+                TokenEncoding.Base64 => Convert.ToBase64String(bytes)
+            };
         }
 
 

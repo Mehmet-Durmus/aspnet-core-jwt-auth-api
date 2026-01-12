@@ -1,5 +1,6 @@
 ﻿using LogInSignUp.BusinessLogic.Abstracts;
 using LogInSignUp.BusinessLogic.DTOs;
+using LogInSignUp.BusinessLogic.Enums;
 using LogInSignUp.BusinessLogic.Exceptions;
 using LogInSignUp.BusinessLogic.Security.Password.Abstracts;
 using LogInSignUp.BusinessLogic.Security.Token.Abstracts;
@@ -18,12 +19,18 @@ namespace LogInSignUp.BusinessLogic.Concretes
         private readonly IUserRepository _userRepository;
         private readonly IPasswordHasher _passwordHasher;
         private readonly ITokenHandler _tokenHandler;
+        private readonly IUserManager _userManager;
 
-        public AuthManager(IUserRepository userRepository, IPasswordHasher passwordHasher, ITokenHandler tokenHandler)
+        public AuthManager(
+            IUserRepository userRepository,
+            IPasswordHasher passwordHasher,
+            ITokenHandler tokenHandler,
+            IUserManager userManager)
         {
             _userRepository = userRepository;
             _passwordHasher = passwordHasher;
             _tokenHandler = tokenHandler;
+            _userManager = userManager;
         }
 
         public async Task<AccessTokenDto> LogInAsync(string userNameOrEmail, string password)
@@ -37,7 +44,23 @@ namespace LogInSignUp.BusinessLogic.Concretes
                 throw new InvalidCredentialsException();
             if (!user.IsEmailVerified)
                 throw new EmailNotVerifiedException();
-            return _tokenHandler.CreateAccessToken(user);
+            AccessTokenDto token = _tokenHandler.CreateAccessToken(user);
+            await _userManager.UpdateRefreshTokenAsync(user, token.RefreshToken);
+            return token;
+        }
+
+        public async Task<AccessTokenDto> RefreshTokenLogInAsyn(string userId, string refreshToken)
+        {
+            User? user = await _userRepository.GetAsync(Guid.Parse(userId));
+            if (user == null)
+                throw new UserNotFoundException();
+            if (user.RefreshTokenEndDate > DateTime.UtcNow)
+            {
+                AccessTokenDto token = _tokenHandler.CreateAccessToken(user);
+                await _userManager.UpdateRefreshTokenAsync(user, refreshToken);
+                return token;
+            }
+            throw new RefreshTokenExpiredException();
         }
     }
 }

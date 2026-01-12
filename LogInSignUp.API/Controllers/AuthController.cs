@@ -24,5 +24,12 @@ namespace LogInSignUp.API.Controllers
             AccessTokenDto token = await _authManager.LogInAsync(userNameOrEmail, password);
             return CreateActionResult(AppResponseDto<AccessTokenDto>.Success(200, token));
         }
+
+        [HttpPost("[action]")]
+        public async Task<IActionResult> RefreshTokenLogIn(string userId, string refreshToken)
+        {
+            AccessTokenDto token = await _authManager.RefreshTokenLogInAsyn(userId, refreshToken);
+            return CreateActionResult(AppResponseDto<AccessTokenDto>.Success(200, token));
+        }
     }
 }
