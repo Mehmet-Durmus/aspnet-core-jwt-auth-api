@@ -10,8 +10,10 @@ namespace LogInSignUp.API.Controllers
         [NonAction]
         protected IActionResult CreateActionResult<T>(AppResponseDto<T> response)
             => StatusCode(response.StatusCode, response);
+        [NonAction]
         protected IActionResult CreateActionResult(AppResponseDto response)
             => StatusCode(response.StatusCode, response);
+        [NonAction]
         protected IActionResult NoContentResult()
             => NoContent();
     }

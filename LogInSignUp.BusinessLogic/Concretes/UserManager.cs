@@ -107,9 +107,9 @@ namespace LogInSignUp.BusinessLogic.Concretes
                 throw new UserNotFoundException();
         }
 
-        public async Task SendResetPasswordMailAsync(string userId)
+        public async Task SendResetPasswordMailAsync(string email)
         {
-            User? user = await _userRepository.GetAsync(Guid.Parse(userId));
+            User? user = await _userRepository.GetUserByEmail(email);
             if (user == null)
                 throw new UserNotFoundException();
             string resetPasswordToken = _tokenHandler.CreateToken(TokenEncoding.UrlSafe);

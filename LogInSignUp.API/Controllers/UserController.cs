@@ -41,9 +41,9 @@ namespace LogInSignUp.API.Controllers
         }
 
         [HttpGet("[action]")]
-        public async Task<IActionResult> SendResetPasswordMail(string userId)
+        public async Task<IActionResult> SendResetPasswordMail(string email)
         {
-            await _userManager.SendResetPasswordMailAsync(userId);
+            await _userManager.SendResetPasswordMailAsync(email);
             return Ok();
         }
 
