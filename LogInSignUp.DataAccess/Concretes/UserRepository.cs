@@ -30,12 +30,12 @@ namespace LogInSignUp.DataAccess.Concretes
             return await _dbSet.IgnoreQueryFilters().AnyAsync(x => x.UserName == userName);
         }
 
-        public async Task<User> GetUserByEmail(string email)
+        public async Task<User?> GetUserByEmail(string email)
         {
             return await _dbSet.FirstOrDefaultAsync(u => u.Email== email);
         }
 
-        public async Task<User> GetUserByUserName(string userName)
+        public async Task<User?> GetUserByUserName(string userName)
         {
             return await _dbSet.FirstOrDefaultAsync(u => u.UserName == userName);
         }

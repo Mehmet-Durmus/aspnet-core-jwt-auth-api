@@ -9,6 +9,5 @@ namespace LogInSignUp.BusinessLogic.Configuration.Token
     public sealed class EmailVerificationTokenSettings
     {
         public int TokenLifetimeMinutes { get; set; }
-        public int ResendCooldownSeconds { get; set;}
     }
 }

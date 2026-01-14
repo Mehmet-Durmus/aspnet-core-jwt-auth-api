@@ -8,11 +8,11 @@ namespace LogInSignUp.API.Controllers
     public abstract class ApiBaseController : ControllerBase
     {
         [NonAction]
-        protected IActionResult CreateActionResult<T>(AppResponseDto<T> response)
-            => StatusCode(response.StatusCode, response);
+        protected IActionResult CreateActionResult<T>(int statusCode, AppResponseDto<T> response)
+            => StatusCode(statusCode, response);
         [NonAction]
-        protected IActionResult CreateActionResult(AppResponseDto response)
-            => StatusCode(response.StatusCode, response);
+        protected IActionResult CreateActionResult(int statusCode, AppResponseDto response)
+            => StatusCode(statusCode, response);
         [NonAction]
         protected IActionResult NoContentResult()
             => NoContent();

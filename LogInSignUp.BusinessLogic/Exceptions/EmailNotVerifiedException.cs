@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LogInSignUp.BusinessLogic.Exceptions
 {
-    public class EmailNotVerifiedException : Exception
+    public class EmailNotVerifiedException : AppException
     {
         public EmailNotVerifiedException()
-            : base("Email address has not been verified.") {}
+            : base(403, "Email address has not been verified.") {}
     }
 }

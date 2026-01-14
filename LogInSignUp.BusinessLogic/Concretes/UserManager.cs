@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using LogInSignUp.BusinessLogic.Abstracts;
+using LogInSignUp.BusinessLogic.Configuration.Mail;
 using LogInSignUp.BusinessLogic.Configuration.Token;
 using LogInSignUp.BusinessLogic.DTOs;
 using LogInSignUp.BusinessLogic.Enums;
@@ -20,6 +21,9 @@ namespace LogInSignUp.BusinessLogic.Concretes
         private readonly EmailVerificationTokenSettings _emailVerificationTokenSettings;
         private readonly RefreshTokenSettings _refreshTokenSettings;
         private readonly ResetPasswordTokenSettings _resetPasswordTokenSettings;
+        private readonly MailSettings _mailSettings;
+        private readonly EmailVerificationMailSettings _emailVerificationMailSettings;
+        private readonly ResetPasswordMailSettings _resetPasswordMailSettings;
         private readonly ITokenHandler _tokenHandler;
         private readonly ITokenHasher _tokenHasher;
         private readonly IMailService _mailService;
@@ -29,6 +33,7 @@ namespace LogInSignUp.BusinessLogic.Concretes
             IMapper mapper,
             IPasswordHasher passwordHasher,
             TokenSettings tokenSettings,
+            MailSettings mailSettings,
             ITokenHandler tokenHandler,
             ITokenHasher tokenHasher,
             IMailService mailService)
@@ -40,6 +45,9 @@ namespace LogInSignUp.BusinessLogic.Concretes
             _emailVerificationTokenSettings = _tokenSettings.EmailVerificationSettings;
             _refreshTokenSettings = _tokenSettings.RefreshTokenSettings;
             _resetPasswordTokenSettings = _tokenSettings.ResetPasswordSettings;
+            _mailSettings = mailSettings;
+            _emailVerificationMailSettings = _mailSettings.EmailVerificationSettings;
+            _resetPasswordMailSettings = _mailSettings.ResetPasswordSettings;
             _tokenHandler = tokenHandler;
             _tokenHasher = tokenHasher;
             _mailService = mailService;
@@ -66,23 +74,26 @@ namespace LogInSignUp.BusinessLogic.Concretes
             if (user == null)
                 throw new UserNotFoundException();
             if (DateTime.UtcNow > user.EmailVerificationTokenEndDate)
-                throw new TokenExpiredException();
+                throw new EmailVerificationTokenExpiredException();
             if (!_tokenHasher.Verify(verificationToken, user.EmailVerificationTokenHash))
-                throw new InvalidTokenException("Email verification token is invalid.");
+                throw new InvalidEmailVerificationTokenException();
             user.IsEmailVerified = true;
             user.EmailVerificationTokenHash = null;
             await _userRepository.UpdateAsync(user);
         }
 
-        public async Task SendNewVerificationEmailAsync(string userId)
+        public async Task SendNewVerificationEmailAsync(string userNameOrEmail)
         {
-            User? user = await _userRepository.GetAsync(Guid.Parse(userId));
+            User? user = await _userRepository.GetUserByUserName(userNameOrEmail);
+            if (user == null)
+                user = await _userRepository.GetUserByEmail(userNameOrEmail);
             if (user == null)
                 throw new UserNotFoundException();
             if (user.IsEmailVerified)
                 throw new EmailAlreadyVerifiedException();
-            if (DateTime.UtcNow.AddSeconds(-_emailVerificationTokenSettings.ResendCooldownSeconds) > user.EmailVerificationTokenSentAt)
-                await IssueEmailVerificationAsync(user);
+            if (user.EmailVerificationTokenSentAt > DateTime.UtcNow.AddMinutes(-_emailVerificationMailSettings.ResendCooldownMinutes))
+                throw new EmailVerificationAlreadyRequestedException();    
+            await IssueEmailVerificationAsync(user);
         }
 
         private async Task IssueEmailVerificationAsync(User user)
@@ -112,6 +123,8 @@ namespace LogInSignUp.BusinessLogic.Concretes
             User? user = await _userRepository.GetUserByEmail(email);
             if (user == null)
                 throw new UserNotFoundException();
+            if (user.PasswordResetTokenSentAt > DateTime.UtcNow.AddMinutes(-_resetPasswordMailSettings.ResendCooldownMinutes))
+                throw new ResetPasswordAlreadyRequestedException();
             string resetPasswordToken = _tokenHandler.CreateToken(TokenEncoding.UrlSafe);
             await _mailService.SendResetPasswordMailAsync(user, resetPasswordToken);
             user.PasswordResetTokenHash = _tokenHasher.Hash(resetPasswordToken);
@@ -127,9 +140,9 @@ namespace LogInSignUp.BusinessLogic.Concretes
                 throw new UserNotFoundException();
             bool result = _tokenHasher.Verify(resetPasswordToken, user.PasswordResetTokenHash);
             if (!result)
-                throw new InvalidTokenException("Reset password token is invalid.");
+                throw new InvalidResetPasswordTokenException();
             if (DateTime.UtcNow > user.RefreshTokenEndDate)
-                throw new TokenExpiredException();
+                throw new ResetPasswordTokenExpiredException();
             return result;
         }
 

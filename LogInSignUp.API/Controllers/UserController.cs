@@ -34,9 +34,9 @@ namespace LogInSignUp.API.Controllers
         }
 
         [HttpGet("[action]")]
-        public async Task<IActionResult> SendVerificationMail(string userId)
+        public async Task<IActionResult> SendVerificationMail(string userNameOrEmail)
         {
-            await _userManager.SendNewVerificationEmailAsync(userId);
+            await _userManager.SendNewVerificationEmailAsync(userNameOrEmail);
             return Ok();
         }
 

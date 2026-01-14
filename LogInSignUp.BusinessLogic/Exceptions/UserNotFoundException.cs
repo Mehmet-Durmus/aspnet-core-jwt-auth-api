@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 
 namespace LogInSignUp.BusinessLogic.Exceptions
 {
-    public class UserNotFoundException : Exception
+    public class UserNotFoundException : AppException
     {
+        public UserNotFoundException(int statusCode, string message)
+            :base(statusCode, message) {}
+        public UserNotFoundException(int statusCode)
+            :base(statusCode, "The requested user could not be found.") {}
         public UserNotFoundException()
-            : base("The requested user could not be found.") { }
+            : base(404, "The requested user could not be found.") { }
     }
 }

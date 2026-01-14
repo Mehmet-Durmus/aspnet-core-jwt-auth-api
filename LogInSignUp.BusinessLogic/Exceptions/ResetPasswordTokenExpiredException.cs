@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LogInSignUp.BusinessLogic.Exceptions
 {
-    public class EmailAlreadyVerifiedException : AppException
+    public class ResetPasswordTokenExpiredException : AppException
     {
-        public EmailAlreadyVerifiedException()
-            : base(400, "Email address is already verified.") { }
+        public ResetPasswordTokenExpiredException()
+            :base(410, "Reset password token has expired.") {}
     }
 }

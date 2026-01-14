@@ -9,6 +9,5 @@ namespace LogInSignUp.BusinessLogic.Configuration.Token
     public class ResetPasswordTokenSettings
     {
         public int TokenLifetimeMinutes { get; set; }
-        public int ResendCooldownSeconds { get; set; }
     }
 }

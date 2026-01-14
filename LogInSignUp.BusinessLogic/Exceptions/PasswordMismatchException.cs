@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace LogInSignUp.BusinessLogic.Exceptions
 {
-    public class PasswordMismatchException : Exception
+    public class PasswordMismatchException : AppException
     {
         public PasswordMismatchException()
-            : base("Password and password confirmation do not match.")
+            : base(400, "Password and password confirmation do not match.")
         {
         }
     }

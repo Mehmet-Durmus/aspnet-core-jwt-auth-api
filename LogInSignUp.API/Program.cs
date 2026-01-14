@@ -1,4 +1,5 @@
 
+using LogInSignUp.API.Extentions;
 using LogInSignUp.BusinessLogic.Abstracts;
 using LogInSignUp.BusinessLogic.Concretes;
 using LogInSignUp.BusinessLogic.Configuration.Mail;
@@ -108,6 +109,8 @@ namespace LogInSignUp.API
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
+
+            app.ConfigureExceptionHandler();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

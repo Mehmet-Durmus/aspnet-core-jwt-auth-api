@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LogInSignUp.BusinessLogic.Exceptions
 {
-    public class TokenExpiredException : Exception
+    public class InvalidRefreshTokenException : AppException
     {
-        public TokenExpiredException()
-            : base("Token has expired.") { }
+        public InvalidRefreshTokenException()
+            : base(401, "Refresh token is invalid.") {}
     }
 }

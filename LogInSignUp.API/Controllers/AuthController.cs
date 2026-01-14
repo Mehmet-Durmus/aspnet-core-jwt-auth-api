@@ -22,14 +22,14 @@ namespace LogInSignUp.API.Controllers
         public async Task<IActionResult> LogIn(string userNameOrEmail, string password)
         {
             AccessTokenDto token = await _authManager.LogInAsync(userNameOrEmail, password);
-            return CreateActionResult(AppResponseDto<AccessTokenDto>.Success(200, token));
+            return CreateActionResult(200, AppResponseDto<AccessTokenDto>.Success(token));
         }
 
         [HttpPost("[action]")]
         public async Task<IActionResult> RefreshTokenLogIn(string userId, string refreshToken)
         {
             AccessTokenDto token = await _authManager.RefreshTokenLogInAsyn(userId, refreshToken);
-            return CreateActionResult(AppResponseDto<AccessTokenDto>.Success(200, token));
+            return CreateActionResult(200, AppResponseDto<AccessTokenDto>.Success(token));
         }
     }
 }

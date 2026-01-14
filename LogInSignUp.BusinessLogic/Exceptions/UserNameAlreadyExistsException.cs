@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LogInSignUp.BusinessLogic.Exceptions
 {
-    public class UserNameAlreadyExistsException : Exception
+    public class UserNameAlreadyExistsException : AppException
     {
         public UserNameAlreadyExistsException(string userName)
-            : base($"User name {userName} is already in use!") { }
+            : base(409, $"User name {userName} is already in use!") { }
     }
 }

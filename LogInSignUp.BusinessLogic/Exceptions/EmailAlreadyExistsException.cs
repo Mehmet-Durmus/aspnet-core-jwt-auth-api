@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace LogInSignUp.BusinessLogic.Exceptions
 {
-    public sealed class EmailAlreadyExistsException : Exception
+    public sealed class EmailAlreadyExistsException : AppException
     {
         public EmailAlreadyExistsException(string email)
-            : base($"Email address {email} is already in use!") {}
+            : base(409, $"Email address {email} is already in use!") {}
     }
 }
