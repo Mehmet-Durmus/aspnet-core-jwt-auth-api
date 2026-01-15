@@ -13,5 +13,6 @@ namespace LogInSignUp.DataAccess.Abstracts
         Task<bool> UserNameExistsAsync(string userName);
         Task<User?> GetUserByEmail(string email);
         Task<User?> GetUserByUserName(string userName);
+        Task<User?> GetUserByUserNameOrEmail(string userNameOrEmail);
     }
 }

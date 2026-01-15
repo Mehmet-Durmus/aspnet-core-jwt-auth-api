@@ -39,5 +39,10 @@ namespace LogInSignUp.DataAccess.Concretes
         {
             return await _dbSet.FirstOrDefaultAsync(u => u.UserName == userName);
         }
+
+        public async Task<User?> GetUserByUserNameOrEmail(string userNameOrEmail)
+        {
+            return await _dbSet.FirstOrDefaultAsync(u => u.UserName == userNameOrEmail || u.Email == userNameOrEmail);
+        }
     }
 }

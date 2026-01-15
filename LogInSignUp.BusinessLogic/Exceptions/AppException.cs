@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,10 @@ namespace LogInSignUp.BusinessLogic.Exceptions
     {
         public int StatusCode { get; set; }
         protected AppException(int statusCode, string message) : base(message)
+        {
+            StatusCode = statusCode;
+        }
+        protected AppException(int statusCode)
         {
             StatusCode = statusCode;
         }

@@ -1,5 +1,8 @@
 
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using LogInSignUp.API.Extentions;
+using LogInSignUp.API.Filters;
 using LogInSignUp.BusinessLogic.Abstracts;
 using LogInSignUp.BusinessLogic.Concretes;
 using LogInSignUp.BusinessLogic.Configuration.Mail;
@@ -9,6 +12,7 @@ using LogInSignUp.BusinessLogic.Security.Password.Abstracts;
 using LogInSignUp.BusinessLogic.Security.Password.Concretes;
 using LogInSignUp.BusinessLogic.Security.Token.Abstracts;
 using LogInSignUp.BusinessLogic.Security.Token.Concretes;
+using LogInSignUp.BusinessLogic.Validators;
 using LogInSignUp.DataAccess.Abstracts;
 using LogInSignUp.DataAccess.Concretes;
 using LogInSignUp.DataAccess.Context;
@@ -103,7 +107,12 @@ namespace LogInSignUp.API
             builder.Services.AddAutoMapper(typeof(GeneralMapping));
 
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers(options => options.Filters.Add<ValidationFilter>())
+                .ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter = true);
+            builder.Services.AddFluentValidationAutoValidation();
+            builder.Services.AddFluentValidationClientsideAdapters();
+            builder.Services.AddValidatorsFromAssemblyContaining<CreateUserValidator>();
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();

@@ -53,47 +53,51 @@ namespace LogInSignUp.BusinessLogic.Concretes
             _mailService = mailService;
         }
 
-        public async Task CreateUserAsync(CreateUserDto createUserDto)
+        public async Task<EmailRequestAvailabilityDto> CreateUserAsync(CreateUserDto createUserDto)
         {
             if (await _userRepository.EmailExistsAsync(createUserDto.Email))
                 throw new EmailAlreadyExistsException(createUserDto.Email);
             if (await _userRepository.UserNameExistsAsync(createUserDto.UserName))
                 throw new UserNameAlreadyExistsException(createUserDto.UserName);
-            if (createUserDto.Password != createUserDto.PasswordConfirm)
-                throw new PasswordMismatchException();
 
             User user = _mapper.Map<User>(createUserDto);
+            user.Name = user.Name.Trim();
+            user.LastName = user.LastName.Trim();
+            user.UserName = user.UserName.Trim();
             user.PasswordHash = _passwordHasher.Hash(createUserDto.Password);
             user = await _userRepository.AddAsync(user);
 
             await IssueEmailVerificationAsync(user);
+
+            return new() { EmailRequestCooldownInSeconds = _emailVerificationMailSettings.ResendCooldownSeconds };
+
         }
-        public async Task VerifyEmailAsync(string userId, string verificationToken)
+        public async Task VerifyEmailAsync(VerifyTokenDto verifyTokenDto)
         {
-            User? user = await _userRepository.GetAsync(Guid.Parse(userId));
+            User? user = await _userRepository.GetAsync(Guid.Parse(verifyTokenDto.UserId));
             if (user == null)
                 throw new UserNotFoundException();
             if (DateTime.UtcNow > user.EmailVerificationTokenEndDate)
                 throw new EmailVerificationTokenExpiredException();
-            if (!_tokenHasher.Verify(verificationToken, user.EmailVerificationTokenHash))
+            if (!_tokenHasher.Verify(verifyTokenDto.Token, user.EmailVerificationTokenHash))
                 throw new InvalidEmailVerificationTokenException();
             user.IsEmailVerified = true;
             user.EmailVerificationTokenHash = null;
             await _userRepository.UpdateAsync(user);
         }
 
-        public async Task SendNewVerificationEmailAsync(string userNameOrEmail)
+        public async Task<EmailRequestAvailabilityDto> SendNewVerificationEmailAsync(UserIdentifierDto userIdentifierDto)
         {
-            User? user = await _userRepository.GetUserByUserName(userNameOrEmail);
-            if (user == null)
-                user = await _userRepository.GetUserByEmail(userNameOrEmail);
+            User? user = await _userRepository.GetUserByUserNameOrEmail(userIdentifierDto.UserNameOrEmail);
             if (user == null)
                 throw new UserNotFoundException();
             if (user.IsEmailVerified)
                 throw new EmailAlreadyVerifiedException();
-            if (user.EmailVerificationTokenSentAt > DateTime.UtcNow.AddMinutes(-_emailVerificationMailSettings.ResendCooldownMinutes))
+            if (user.EmailVerificationTokenSentAt > DateTime.UtcNow.AddMinutes(-_emailVerificationMailSettings.ResendCooldownSeconds))
                 throw new EmailVerificationAlreadyRequestedException();    
             await IssueEmailVerificationAsync(user);
+
+            return new() { EmailRequestCooldownInSeconds = _emailVerificationMailSettings.ResendCooldownSeconds };
         }
 
         private async Task IssueEmailVerificationAsync(User user)
@@ -118,12 +122,12 @@ namespace LogInSignUp.BusinessLogic.Concretes
                 throw new UserNotFoundException();
         }
 
-        public async Task SendResetPasswordMailAsync(string email)
+        public async Task<EmailRequestAvailabilityDto> SendResetPasswordMailAsync(UserIdentifierDto userIdentifierDto)
         {
-            User? user = await _userRepository.GetUserByEmail(email);
+            User? user = await _userRepository.GetUserByUserNameOrEmail(userIdentifierDto.UserNameOrEmail);
             if (user == null)
                 throw new UserNotFoundException();
-            if (user.PasswordResetTokenSentAt > DateTime.UtcNow.AddMinutes(-_resetPasswordMailSettings.ResendCooldownMinutes))
+            if (user.PasswordResetTokenSentAt > DateTime.UtcNow.AddMinutes(-_resetPasswordMailSettings.ResendCooldownSeconds))
                 throw new ResetPasswordAlreadyRequestedException();
             string resetPasswordToken = _tokenHandler.CreateToken(TokenEncoding.UrlSafe);
             await _mailService.SendResetPasswordMailAsync(user, resetPasswordToken);
@@ -131,14 +135,16 @@ namespace LogInSignUp.BusinessLogic.Concretes
             user.PasswordResetTokenEndDate = DateTime.UtcNow.AddMinutes(_resetPasswordTokenSettings.TokenLifetimeMinutes);
             user.IsPasswordResetTokenUsed = false;
             await _userRepository.UpdateAsync(user);
+
+            return new() { EmailRequestCooldownInSeconds = _resetPasswordMailSettings.ResendCooldownSeconds };
         }
 
-        public async Task<bool> VerifyResetPasswordTokenAsync(string userId, string resetPasswordToken)
+        public async Task<bool> VerifyResetPasswordTokenAsync(VerifyTokenDto verifyTokenDto)
         {
-            User? user = await _userRepository.GetAsync(Guid.Parse(userId));
+            User? user = await _userRepository.GetAsync(Guid.Parse(verifyTokenDto.UserId));
             if (user == null)
                 throw new UserNotFoundException();
-            bool result = _tokenHasher.Verify(resetPasswordToken, user.PasswordResetTokenHash);
+            bool result = _tokenHasher.Verify(verifyTokenDto.Token, user.PasswordResetTokenHash);
             if (!result)
                 throw new InvalidResetPasswordTokenException();
             if (DateTime.UtcNow > user.RefreshTokenEndDate)
@@ -146,14 +152,12 @@ namespace LogInSignUp.BusinessLogic.Concretes
             return result;
         }
 
-        public async Task UpdatePassword(string userId, string password, string passwordConfirm)
+        public async Task UpdatePassword(UpdatePasswordDto updatePasswordDto)
         {
-            User? user = await _userRepository.GetAsync(Guid.Parse(userId));
+            User? user = await _userRepository.GetAsync(Guid.Parse(updatePasswordDto.UserId));
             if (user == null)
                 throw new UserNotFoundException();
-            if (password != passwordConfirm)
-                throw new PasswordMismatchException();
-            user.PasswordHash = _passwordHasher.Hash(password);
+            user.PasswordHash = _passwordHasher.Hash(updatePasswordDto.Password);
             await _userRepository.UpdateAsync(user);
         }
     }

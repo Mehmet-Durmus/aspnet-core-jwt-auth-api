@@ -9,7 +9,7 @@ namespace LogInSignUp.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ApiBaseController
+    public class UserController : ControllerBase
     {
         private readonly IUserManager _userManager;
 
@@ -22,43 +22,43 @@ namespace LogInSignUp.API.Controllers
         [HttpPost("[action]")]
         public async Task<IActionResult> CreateUser(CreateUserDto createUserDto)
         {
-            await _userManager.CreateUserAsync(createUserDto);
-            return Ok();
+            EmailRequestAvailabilityDto response = await _userManager.CreateUserAsync(createUserDto);
+            return Created(String.Empty, response);
         }
 
-        [HttpGet("verify-email/{userId}/{verificationToken}")]
-        public async Task<IActionResult> VerifyEmail(string userId, string verificationToken)
+        [HttpPost("verify-email")]
+        public async Task<IActionResult> VerifyEmail(VerifyTokenDto verifyTokenDto)
         {
-            await _userManager.VerifyEmailAsync(userId, verificationToken);
-            return Ok();
+            await _userManager.VerifyEmailAsync(verifyTokenDto);
+            return NoContent();
         }
 
-        [HttpGet("[action]")]
-        public async Task<IActionResult> SendVerificationMail(string userNameOrEmail)
+        [HttpPost("[action]")]
+        public async Task<IActionResult> SendVerificationMail(UserIdentifierDto userIdentifierDto)
         {
-            await _userManager.SendNewVerificationEmailAsync(userNameOrEmail);
-            return Ok();
+            EmailRequestAvailabilityDto response = await _userManager.SendNewVerificationEmailAsync(userIdentifierDto);
+            return Ok(response);
         }
 
-        [HttpGet("[action]")]
-        public async Task<IActionResult> SendResetPasswordMail(string email)
+        [HttpPost("[action]")]
+        public async Task<IActionResult> SendResetPasswordMail(UserIdentifierDto userIdentifierDto) 
         {
-            await _userManager.SendResetPasswordMailAsync(email);
-            return Ok();
+            EmailRequestAvailabilityDto response = await _userManager.SendResetPasswordMailAsync(userIdentifierDto);
+            return Ok(response);
         }
 
-        [HttpGet("[action]")]
-        public async Task<IActionResult> VerifyResetPasswordToken(string userId, string resetPasswordToken)
+        [HttpPost("[action]")]
+        public async Task<IActionResult> VerifyResetPasswordToken(VerifyTokenDto verifyTokenDto)
         {
-            bool result = await _userManager.VerifyResetPasswordTokenAsync(userId, resetPasswordToken);
+            bool result = await _userManager.VerifyResetPasswordTokenAsync(verifyTokenDto);
             return NoContent();
         }
 
         [HttpPut("[action]")]
-        public async Task<IActionResult> UpdatePassword(string userId, string password, string passwordConfirm)
+        public async Task<IActionResult> UpdatePassword(UpdatePasswordDto updatePasswordDto)
         {
-            await _userManager.UpdatePassword(userId, password, passwordConfirm);
-            return Ok();
+            await _userManager.UpdatePassword(updatePasswordDto);
+            return NoContent();
         }
     }
 }

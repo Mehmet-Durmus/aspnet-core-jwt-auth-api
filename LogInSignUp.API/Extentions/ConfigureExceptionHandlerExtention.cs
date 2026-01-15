@@ -17,17 +17,21 @@ namespace LogInSignUp.API.Extentions
                     context.Response.ContentType = MediaTypeNames.Application.Json;
                     var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
 
-                    if(contextFeature?.Error is AppException appException)
+                    if (contextFeature?.Error is ValidationException validationException)
+                    {
+                        context.Response.StatusCode = StatusCodes.Status400BadRequest;
+                        await context.Response.WriteAsJsonAsync(new ErrorResponseDto(validationException.Errors));
+                        return;
+                    }
+                    else if(contextFeature?.Error is AppException appException)
                     {
                         context.Response.StatusCode = appException.StatusCode;
-                        var response = AppResponseDto.Fail(appException.Message);
-
-                        await context.Response.WriteAsJsonAsync(response);
+                        await context.Response.WriteAsJsonAsync(new ErrorResponseDto(appException.Message));
                         return;
                     }
 
                     context.Response.StatusCode = StatusCodes.Status500InternalServerError;
-                    var unknownResponse = AppResponseDto.Fail("Unexpected Error!");
+                    var unknownResponse = new ErrorResponseDto(contextFeature.Error.Message);
 
                     await context.Response.WriteAsJsonAsync(unknownResponse);
                 });

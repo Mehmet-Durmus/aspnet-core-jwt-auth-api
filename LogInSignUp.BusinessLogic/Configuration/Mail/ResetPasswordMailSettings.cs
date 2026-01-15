@@ -17,6 +17,6 @@ namespace LogInSignUp.BusinessLogic.Configuration.Mail
         public int Port { get; set; }
         public bool EnableSsl { get; set; }
         public string Host { get; set; } = null!;
-        public int ResendCooldownMinutes { get; set; }
+        public int ResendCooldownSeconds { get; set; }
     }
 }
