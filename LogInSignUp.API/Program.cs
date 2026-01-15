@@ -3,6 +3,7 @@ using FluentValidation;
 using FluentValidation.AspNetCore;
 using LogInSignUp.API.Extentions;
 using LogInSignUp.API.Filters;
+using LogInSignUp.BusinessLogic;
 using LogInSignUp.BusinessLogic.Abstracts;
 using LogInSignUp.BusinessLogic.Concretes;
 using LogInSignUp.BusinessLogic.Configuration.Mail;
@@ -13,6 +14,7 @@ using LogInSignUp.BusinessLogic.Security.Password.Concretes;
 using LogInSignUp.BusinessLogic.Security.Token.Abstracts;
 using LogInSignUp.BusinessLogic.Security.Token.Concretes;
 using LogInSignUp.BusinessLogic.Validators;
+using LogInSignUp.DataAccess;
 using LogInSignUp.DataAccess.Abstracts;
 using LogInSignUp.DataAccess.Concretes;
 using LogInSignUp.DataAccess.Context;
@@ -31,10 +33,6 @@ namespace LogInSignUp.API
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"))
-            );
-
             var jwtSettings = builder.Configuration
                 .GetRequiredSection("TokenSettings:JwtSettings")
                 .Get<JwtSettings>()
@@ -42,7 +40,6 @@ namespace LogInSignUp.API
             if (string.IsNullOrWhiteSpace(jwtSettings.SecurityKey))
                 throw new InvalidOperationException("JwtSettings:SecurityKey is not configured.");
             
-
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
@@ -59,7 +56,6 @@ namespace LogInSignUp.API
                             Encoding.UTF8.GetBytes(jwtSettings.SecurityKey))
                     };
                 });
-
 
             builder.Services.AddSwaggerGen(c =>
             {
@@ -89,23 +85,10 @@ namespace LogInSignUp.API
                 });
             });
 
-            builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-            builder.Services.AddScoped<IUserRepository, UserRepository>();
-            builder.Services.AddScoped<IUserManager, UserManager>();
-            builder.Services.AddScoped<IAuthManager, AuthManager>();
-            builder.Services.AddScoped<IPasswordHasher, Pbkdf2PasswordHasher>();
-            builder.Services.AddScoped<ITokenHandler, BusinessLogic.Security.Token.Concretes.TokenHandler>();
-            builder.Services.AddScoped<ITokenHasher, TokenHasher>();
-            builder.Services.AddScoped<IMailService, MailService>();
-
-
-            builder.Services.Configure<TokenSettings>(builder.Configuration.GetSection("TokenSettings"));
-            builder.Services.AddSingleton(sp =>sp.GetRequiredService<IOptions<TokenSettings>>().Value);
-            builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
-            builder.Services.AddSingleton(sp =>sp.GetRequiredService<IOptions<MailSettings>>().Value);
+            builder.Services.AddDataAccess(builder.Configuration)
+                .AddBusinessServices(builder.Configuration);
 
             builder.Services.AddAutoMapper(typeof(GeneralMapping));
-
 
             builder.Services.AddControllers(options => options.Filters.Add<ValidationFilter>())
                 .ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter = true);

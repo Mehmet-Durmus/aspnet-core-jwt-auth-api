@@ -1,5 +1,6 @@
 ﻿using LogInSignUp.BusinessLogic.Abstracts;
 using LogInSignUp.BusinessLogic.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LogInSignUp.API.Controllers
@@ -28,5 +29,9 @@ namespace LogInSignUp.API.Controllers
             AccessTokenDto token = await _authManager.RefreshTokenLogInAsyn(refreshTokenLogInDto);
             return Ok(token);
         }
+
+        [Authorize]
+        [HttpGet("[action]")]
+        public IActionResult IsLoggedIn() => Ok();
     }
 }

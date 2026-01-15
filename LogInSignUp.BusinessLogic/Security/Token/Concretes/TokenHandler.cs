@@ -32,7 +32,7 @@ namespace LogInSignUp.BusinessLogic.Security.Token.Concretes
             AccessTokenDto token = new();
             SymmetricSecurityKey securityKey = new(Encoding.UTF8.GetBytes(_jwtSettings.SecurityKey));
             SigningCredentials signingCredentials = new(securityKey, SecurityAlgorithms.HmacSha256);
-            token.Expiration = DateTime.UtcNow.AddMinutes(_jwtSettings.TokenLifetimeDays);
+            token.Expiration = DateTime.UtcNow.AddDays(_jwtSettings.TokenLifetimeDays);
             JwtSecurityToken securityToken = new(
                 audience: _jwtSettings.Audience,
                 issuer: _jwtSettings.Issuer,
