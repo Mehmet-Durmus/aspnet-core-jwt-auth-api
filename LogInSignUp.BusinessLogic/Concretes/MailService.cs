@@ -27,7 +27,7 @@ namespace LogInSignUp.BusinessLogic.Concretes
         public async Task SendEmailVerificationMailAsync(User user, string emailVerificationToken)
         {
             string url = _emailVerificationSettings.BaseUrl.EndsWith("/") ? _emailVerificationSettings.BaseUrl[..^1] : _emailVerificationSettings.BaseUrl;
-            string mailBody = $"{_emailVerificationSettings.MailBody}<br><br><strong><a target=\"_blank\" href=\"{url}/verify-email/{user.Id}/{emailVerificationToken}\">Epostanı doğrula</a></strong>";
+            string mailBody = $"{_emailVerificationSettings.MailBody}<br><br><strong><a target=\"_blank\" href=\"{url}/{user.Id}/{emailVerificationToken}\">Epostanı doğrula</a></strong>";
             await SendMailAsync(user.Email,
                 _emailVerificationSettings.Subject,
                 mailBody,
@@ -66,7 +66,7 @@ namespace LogInSignUp.BusinessLogic.Concretes
         public async Task SendResetPasswordMailAsync(User user, string resetPasswordToken)
         {
             string url = _resetPasswordSettings.BaseUrl.EndsWith("/") ? _resetPasswordSettings.BaseUrl[..^1] : _resetPasswordSettings.BaseUrl;
-            string mailBody = $"{_resetPasswordSettings.MailBody}<br><br><strong><a target=\"_blank\" href=\"{url}/verify-email/{user.Id}/{resetPasswordToken}\">Epostanı doğrula</a></strong>";
+            string mailBody = $"{_resetPasswordSettings.MailBody}<br><br><strong><a target=\"_blank\" href=\"{url}/{user.Id}/{resetPasswordToken}\">Epostanı doğrula</a></strong>";
             await SendMailAsync(
                 user.Email,
                 _resetPasswordSettings.Subject,
