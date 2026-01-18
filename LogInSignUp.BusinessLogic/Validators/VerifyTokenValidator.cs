@@ -12,10 +12,6 @@ namespace LogInSignUp.BusinessLogic.Validators
     {
         public VerifyTokenValidator()
         {
-            RuleFor(x => x.UserId)
-                .NotEmpty()
-                .Must(x => Guid.TryParse(x, out _))
-                .WithMessage("Invalid user id.");
             RuleFor(x => x.Token)
                 .Cascade(CascadeMode.Stop)
                 .NotEmpty().WithMessage("Invalid token.")

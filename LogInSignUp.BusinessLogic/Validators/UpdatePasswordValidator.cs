@@ -12,10 +12,11 @@ namespace LogInSignUp.BusinessLogic.Validators
     {
         public UpdatePasswordValidator()
         {
-            RuleFor(x => x.UserId)
-                .NotEmpty()
-                .Must(x => Guid.TryParse(x, out _))
-                .WithMessage("Invalid user id.");
+            RuleFor(x => x.Token)
+                .Cascade(CascadeMode.Stop)
+                .NotEmpty().WithMessage("Invalid token.")
+                .Length(40, 60).WithMessage("Invalid token.")
+                .Matches("^[A-Za-z0-9_-]+$").WithMessage("Invalid token.");
             RuleFor(u => u.Password)
                 .MinimumLength(8).WithMessage("Password must be at least 8 characters.")
                 .MaximumLength(50).WithMessage("Password can be a maximum of 50 characters.")

@@ -24,11 +24,11 @@ namespace LogInSignUp.BusinessLogic.Concretes
             _resetPasswordSettings = _mailSettings.ResetPasswordSettings;
         }
 
-        public async Task SendEmailVerificationMailAsync(User user, string emailVerificationToken)
+        public async Task SendEmailVerificationMailAsync(string email, string emailVerificationToken)
         {
             string url = _emailVerificationSettings.BaseUrl.EndsWith("/") ? _emailVerificationSettings.BaseUrl[..^1] : _emailVerificationSettings.BaseUrl;
-            string mailBody = $"{_emailVerificationSettings.MailBody}<br><br><strong><a target=\"_blank\" href=\"{url}/{user.Id}/{emailVerificationToken}\">Epostanı doğrula</a></strong>";
-            await SendMailAsync(user.Email,
+            string mailBody = $"{_emailVerificationSettings.MailBody}<br><br><strong><a target=\"_blank\" href=\"{url}/{emailVerificationToken}\">Epostanı doğrula</a></strong>";
+            await SendMailAsync(email,
                 _emailVerificationSettings.Subject,
                 mailBody,
                 _emailVerificationSettings.EmailAddress,
@@ -63,12 +63,12 @@ namespace LogInSignUp.BusinessLogic.Concretes
             await SendMailAsync(new[] { to }, subject, body, from, displayName, password, port, enableSSl, host, isBodyHtml);
         }
 
-        public async Task SendResetPasswordMailAsync(User user, string resetPasswordToken)
+        public async Task SendResetPasswordMailAsync(string email, string resetPasswordToken)
         {
             string url = _resetPasswordSettings.BaseUrl.EndsWith("/") ? _resetPasswordSettings.BaseUrl[..^1] : _resetPasswordSettings.BaseUrl;
-            string mailBody = $"{_resetPasswordSettings.MailBody}<br><br><strong><a target=\"_blank\" href=\"{url}/{user.Id}/{resetPasswordToken}\">Epostanı doğrula</a></strong>";
+            string mailBody = $"{_resetPasswordSettings.MailBody}<br><br><strong><a target=\"_blank\" href=\"{url}/{resetPasswordToken}\">Epostanı doğrula</a></strong>";
             await SendMailAsync(
-                user.Email,
+                email,
                 _resetPasswordSettings.Subject,
                 mailBody,
                 _resetPasswordSettings.EmailAddress,

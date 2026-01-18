@@ -9,6 +9,6 @@ namespace LogInSignUp.BusinessLogic.Exceptions
     public class ResetPasswordTokenExpiredException : AppException
     {
         public ResetPasswordTokenExpiredException()
-            :base(410, "Reset password token has expired.") {}
+            :base(400, "Invalid or expired token.") {}
     }
 }

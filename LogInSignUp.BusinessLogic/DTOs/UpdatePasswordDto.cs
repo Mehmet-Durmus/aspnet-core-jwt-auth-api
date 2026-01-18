@@ -8,7 +8,7 @@ namespace LogInSignUp.BusinessLogic.DTOs
 {
     public class UpdatePasswordDto
     {
-        public string UserId { get; set; } = null!;
+        public string Token { get; set; } = null!;
         public string Password { get; set; } = null!;
         public string PasswordConfirm { get; set; } = null!;
     }

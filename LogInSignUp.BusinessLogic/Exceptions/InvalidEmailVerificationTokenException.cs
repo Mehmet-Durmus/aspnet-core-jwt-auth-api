@@ -9,6 +9,6 @@ namespace LogInSignUp.BusinessLogic.Exceptions
     public class InvalidEmailVerificationTokenException : AppException
     {
         public InvalidEmailVerificationTokenException()
-            :base(400, "Email verification token is invalid.") {}
+            :base(400, "Invalid or expired token.") {}
     }
 }

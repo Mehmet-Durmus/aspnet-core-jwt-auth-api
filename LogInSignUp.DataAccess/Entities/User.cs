@@ -20,7 +20,6 @@ namespace LogInSignUp.DataAccess.Entities
         public byte[]? PasswordResetTokenHash { get; set; }
         public DateTime? PasswordResetTokenEndDate { get; set; }
         public DateTime? PasswordResetTokenSentAt { get; set; }
-        public bool IsPasswordResetTokenUsed { get; set; }
         public byte[]? RefreshTokenHash { get; set; }
         public DateTime? RefreshTokenEndDate { get; set; }
     }

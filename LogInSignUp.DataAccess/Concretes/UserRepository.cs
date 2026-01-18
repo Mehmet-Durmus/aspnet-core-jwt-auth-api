@@ -44,5 +44,15 @@ namespace LogInSignUp.DataAccess.Concretes
         {
             return await _dbSet.FirstOrDefaultAsync(u => u.UserName == userNameOrEmail || u.Email == userNameOrEmail);
         }
+
+        public async Task<User?> GetUserByEmailVerificationToken(byte[] tokenHash)
+        {
+            return await _dbSet.FirstOrDefaultAsync(u => u.EmailVerificationTokenHash == tokenHash);
+        }
+
+        public async Task<User?> GetUserByResetPasswordToken(byte[] tokenHash)
+        {
+            return await _dbSet.FirstOrDefaultAsync(u => u.PasswordResetTokenHash == tokenHash);
+        }
     }
 }

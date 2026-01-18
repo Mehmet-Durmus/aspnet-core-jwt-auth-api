@@ -8,7 +8,6 @@ namespace LogInSignUp.BusinessLogic.DTOs
 {
     public class VerifyTokenDto
     {
-        public string UserId { get; set; } = null!;
         public string Token { get; set; } = null!;
     }
 }
