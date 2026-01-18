@@ -9,6 +9,7 @@ using LogInSignUp.BusinessLogic.Mapping;
 using LogInSignUp.BusinessLogic.Validators;
 using LogInSignUp.DataAccess;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -72,6 +73,16 @@ namespace LogInSignUp.API
                     }
                 });
             });
+
+            var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>() ?? Array.Empty<string>();
+            builder.Services.AddCors(options =>
+                options.AddDefaultPolicy(policy => 
+                    policy
+                        .WithOrigins(allowedOrigins)
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                )
+            );
 
             builder.Services.AddDataAccess(builder.Configuration)
                 .AddBusinessServices(builder.Configuration);
